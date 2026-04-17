@@ -1,6 +1,8 @@
 <div align="center">
 
-<img src="assets/main.jpg" alt="飞书同学 · 让协作更智能、更轻松" width="100%" />
+# 飞书同学 · Feishu Classmate
+
+<img src="assets/hero.png" alt="飞书同学 · 让协作更智能、更轻松" width="100%" />
 
 <br/>
 
@@ -12,8 +14,6 @@
 <img src="https://img.shields.io/badge/Skills-28-blueviolet?style=flat-square" />
 <img src="https://img.shields.io/badge/Tables-20%2B-orange?style=flat-square" />
 <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" />
-
-# 飞书同学 · Feishu Classmate
 
 ### 实验室办公场景下的**智能伙伴** · Lab Assistant for the Robotics Lab
 
@@ -37,7 +37,7 @@
 - 👥 **师生协作**,导师 `/dashboard` 一览全组、自然语言派任务、1:1 自动议程
 - 🧠 **技能沉淀**,每次对话都是学习信号,MetaClaw 把 lab 习惯注入 agent
 
-> 展示 PPT [飞书同学.pdf](../飞书同学.pdf) by 董廷霄 / 纪昊年 / 许愿,开放创新赛道。
+> 赛道:开放创新赛道。
 
 ---
 
@@ -373,7 +373,7 @@ feishu-classmate/
 ```bibtex
 @software{feishu_classmate_2026,
   title  = {Feishu Classmate: A Lab-Scenario AI Assistant on OpenClaw + MetaClaw},
-  author = {Dong, Tingxiao and Ji, Haonian and Xu, Yuan},
+  author = {Feishu Classmate Contributors},
   year   = {2026},
   url    = {https://github.com/BaiTianHaoNian/feishu-classmate},
   note   = {Built on @larksuite/openclaw-lark and aiming-lab/MetaClaw (skills mode)}
