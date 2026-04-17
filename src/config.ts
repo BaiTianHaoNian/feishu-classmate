@@ -27,13 +27,28 @@ export interface ClassmateConfig {
       papers?: string;
       experiments?: string;
       reservations?: string;
+      assignments?: string;
+      training_runs?: string;
+      checkpoints?: string;
+      sim_runs?: string;
+      skill_tree?: string;
+      reading_group?: string;
+      one_on_ones?: string;
+      failure_archive?: string;
+      lab_faq?: string;
+      mentor_answers?: string;
+      lab_memes?: string;
+      task_decomposition?: string;
     };
   };
   docs: {
     publicProjects?: string;
     privateProjects?: string;
     researchReports?: string;
+    /** @deprecated — kept for backward compat, prefer dailyRecordShortTerm */
     dailyRecord?: string;
+    dailyRecordShortTerm?: string;
+    dailyRecordLongTerm?: string;
   };
   labInfo: {
     name: string;

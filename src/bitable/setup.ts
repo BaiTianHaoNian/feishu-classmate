@@ -179,7 +179,19 @@ export function getTableId(
     | 'tool_trace'
     | 'papers'
     | 'experiments'
-    | 'reservations',
+    | 'reservations'
+    | 'assignments'
+    | 'training_runs'
+    | 'checkpoints'
+    | 'sim_runs'
+    | 'skill_tree'
+    | 'reading_group'
+    | 'one_on_ones'
+    | 'failure_archive'
+    | 'lab_faq'
+    | 'mentor_answers'
+    | 'lab_memes'
+    | 'task_decomposition',
 ): string {
   const id = cfg.bitable.tableIds?.[key];
   if (!id) {

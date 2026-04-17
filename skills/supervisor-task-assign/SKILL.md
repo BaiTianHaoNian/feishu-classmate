@@ -69,7 +69,7 @@ feishu_classmate_data_layout()
      }
    })
    ```
-5. **(可选)挂 Gantt**: 若确认关联 `project_id`,再 create 一条 Gantt,`milestone=title`,`status="未开始"`,`notes="from assignment <assign_id>"`
+5. **(可选)挂 Gantt** (由 [manage-gantt](../manage-gantt/SKILL.md) 管理): 若确认关联 `project_id`,再 create 一条 Gantt,`milestone=title`,`status="未开始"`,`notes="from assignment <assign_id>"`
 6. **DM 学生**:
    ```
    📌 导师 @<导师> 给你派了任务

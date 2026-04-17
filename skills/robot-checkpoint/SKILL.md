@@ -29,7 +29,7 @@ feishu_classmate_data_layout()
 | field | type | notes |
 |---|---|---|
 | ckpt_id | 1 (Text) | 主键,`ckpt_<ts>_<rand>` |
-| run_id | 1 (Text) | FK → TrainingRuns.run_id |
+| run_id | 1 (Text) | FK → TrainingRuns.run_id (由 [training-run-tracker](../training-run-tracker/SKILL.md) 管理) |
 | tag | 1 (Text) | 语义 tag,e.g. `v1.2.3-best`、`stage2-nightly` |
 | artifact_url | 15 (Url) | S3/OSS/本地路径链接 |
 | eval_env | 1 (Text) | 评测环境名 |

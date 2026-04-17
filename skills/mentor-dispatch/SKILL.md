@@ -33,7 +33,7 @@ feishu_classmate_data_layout()
 | answerer_open_id | User | 回答的师兄师姐 |
 | question_chat_id | Text | 问题所在群的 chat_id(跳回原帖用) |
 | answer_md | Text | 师兄回答(markdown) |
-| tags | MultiSelect | 技术标签,和 `SkillTree.skill_tag` 同 preset |
+| tags | MultiSelect | 技术标签,和 SkillTree.skill_tag 同 preset (由 [skill-tree](../skill-tree/SKILL.md) 管理) |
 | created_at | DateTime | 毫秒 |
 | helpful | Checkbox | 提问者事后确认是否有用 |
 
@@ -146,7 +146,7 @@ feishu_bitable_app_table_record({
 若找到 `helpful=true` 的相似条目 → 先把历史回答甩给提问者,
 附一句 "如果解决了就不打扰师兄了,回复 `还没解决` 我会继续派单。"
 
-> 正式的语义检索由 `lab-faq-search` skill(若存在)处理,本 skill 只做 tag 粗筛。
+> 正式的语义检索由 [lab-faq-search](../lab-faq-search/SKILL.md) skill 处理,本 skill 只做 tag 粗筛。
 
 ---
 

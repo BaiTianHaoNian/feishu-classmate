@@ -32,7 +32,7 @@ feishu_classmate_data_layout()
 | session_id | Text (pk) | `rg_<ts>_<rand>` |
 | date | DateTime | 本次 RG 的计划时间(毫秒) |
 | presenter_open_id | User | 主讲人 |
-| paper_id | Text | FK → `Papers.paper_id`(可为空,粘 arXiv 时再补) |
+| paper_id | Text | FK → `Papers.paper_id`(可为空,粘 arXiv 时再补;由 [manage-papers](../manage-papers/SKILL.md) 管理) |
 | paper_title | Text | 论文题目 |
 | paper_url | Url | arXiv / 期刊链接 |
 | discussion_points_md | Text | 预生成的 3-5 个讨论问题(markdown) |

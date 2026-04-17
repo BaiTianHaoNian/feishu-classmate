@@ -80,8 +80,8 @@ feishu_classmate_data_layout()
 
 ## 场景 B:没有命中时
 
-1. 回复学生:"我这边没有现成答案,建议 @mentor-dispatch 转师兄师姐,同时我先把这个问题记着。"
-2. 调 `mentor-dispatch` skill(如启用)。
+1. 回复学生:"我这边没有现成答案,建议转师兄师姐,同时我先把这个问题记着。"
+2. 调 [mentor-dispatch](../mentor-dispatch/SKILL.md) skill(如启用)。
 3. 等师兄师姐回答后,问学生:
    > 这是一个新问题,师兄说的方案看起来有效,我可以帮你加到 FAQ 吗?
 4. 学生确认后(走场景 C)。

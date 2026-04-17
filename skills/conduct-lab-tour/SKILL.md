@@ -15,12 +15,17 @@ description: |
 
 # 导览 Skill
 
-## 前置条件
+## 前置:拿数据布局
+
+```
+feishu_classmate_data_layout()
+  → { app_token, tables: { projects, ... },
+      docs: { publicProjects }, labInfo: { name, supervisorName, memberCount, specialAreas } }
+```
 
 - `feishu_classmate_temi_status` 必须返回 `connected=true`(非 mock 模式)
-- 若 Temi 不可用或 `mockMode=true`,降级为**纯文字导览**(在飞书群/私信里输出讲解词即可,
-  不调 temi_navigate_to / temi_speak)
-- 必须能读到【可公开项目】文档,没有则提前提示管理员设置 `docs.publicProjects`
+- Temi 不可用或 `mockMode=true` → 降级为**纯文字导览**(飞书群/私信输出讲解词,不调 temi_*)
+- 必须能读到【可公开项目】Doc,没有则提示管理员配 `docs.publicProjects`
 
 ## 5 阶段剧本
 
@@ -56,10 +61,10 @@ description: |
 1. `feishu_classmate_temi_navigate_to({ location: "工位区" })`
 2. `feishu_classmate_temi_detect_person()` — 识别画面中的学生 open_id
 3. 如果识别到 `open_id`:
-   - `feishu_classmate_equipment_query({ ... })` 不需要。改成查 Projects:
-     走飞书 bitable 工具 `feishu_bitable_app_table_record.list`,
-     filter = `CurrentValue.[owner_open_id]=[{id:"<open_id>"}]`,
-     取 title
+   - 用 `feishu_bitable_app_table_record` action=list 查 Projects
+     (由 [manage-gantt](../manage-gantt/SKILL.md) 管理),
+     filter = `CurrentValue.[owner_open_id]=[{id:"<open_id>"}]` + `visibility="可公开"`,
+     取 `title`
    - 生成讲解词: "这位 {学生} 正在做 {project_title}"
 4. `feishu_classmate_temi_speak`
 
