@@ -1,5 +1,9 @@
 <div align="center">
 
+<img src="assets/main.jpg" alt="飞书同学 · 让协作更智能、更轻松" width="100%" />
+
+<br/>
+
 <img src="https://img.shields.io/badge/🦞_OpenClaw-2026.4.10%2B-ff5a2d?style=flat-square" />
 <img src="https://img.shields.io/badge/飞书-Feishu%2FLark-00d6b9?style=flat-square" />
 <img src="https://img.shields.io/badge/Node-22%2B-339933?style=flat-square&logo=node.js&logoColor=white" />
@@ -13,9 +17,9 @@
 
 ### 实验室办公场景下的**智能伙伴** · Lab Assistant for the Robotics Lab
 
-**OpenClaw**(大脑) + **Temi**(身体) + **飞书**(记忆) + **MetaClaw**(自我进化)
+**OpenClaw**(大脑) + **Temi**(身体) + **飞书**(记忆) + **MetaClaw**(技能注入)
 
-[✨ Features](#-features) · [🚀 Quick Start](#-quick-start) · [🛠️ Skills](#️-skills-catalog) · [🏗️ Architecture](#️-architecture) · [🗺️ Roadmap](#️-roadmap)
+[✨ Features](#-features) · [🚀 Quick Start](#-quick-start) · [🛠️ Skills](#️-skills-catalog) · [🏗️ Architecture](#️-architecture) · [📊 Data](#-data-model)
 
 </div>
 
@@ -29,33 +33,31 @@
 - 📋 **管理项目进度**,学生口述 → 自动生成甘特图、每日节点 @ 提醒
 - 🔬 **记录实验/训练**,RL runs · checkpoints · sim-to-real gap 全留痕
 - 📚 **跟踪论文和投稿**,arXiv 自动抓元数据、submission 状态机
-- 🛠️ **器材借还和巡查**,RFID + 摄像头(Phase 2)
+- 🛠️ **器材借还和巡查**,RFID + 摄像头
 - 👥 **师生协作**,导师 `/dashboard` 一览全组、自然语言派任务、1:1 自动议程
-- 🧠 **自我进化**,轨迹自动入库,MetaClaw 基于真实使用数据迭代 skill
+- 🧠 **技能沉淀**,每次对话都是学习信号,MetaClaw 把 lab 习惯注入 agent
 
-> 设计取材自项目书 [飞书同学.pdf](../飞书同学.pdf) by 董廷霄 / 纪昊年 / 许愿,开放创新赛道。
+> 展示 PPT [飞书同学.pdf](../飞书同学.pdf) by 董廷霄 / 纪昊年 / 许愿,开放创新赛道。
 
 ---
 
 ## ✨ Features
 
-| 类别 | 功能 | Phase | 状态 |
-|---|---|---|---|
-| 👋 导览 | 5 阶段:开场白 → 实验室介绍 → 特色区域 → 工位区 → 问答 | 2 | 🟡 skill 就绪,待 Temi |
-| 📊 进度管理 | 学生口述 → 甘特图生成;每日 09:00 节点 @ 提醒 | 1 | ✅ |
-| 🔧 器材管理 | 借还登记 (软件) + RFID 每日巡查 (Temi) | 1 / 2 | ✅ / 🟡 |
-| 🧘 自我监督 | 线上 DM 定时问进度;线下摄像头检测专注 + 柔性干预 | 1 / 2 | ✅ / 🟡 |
-| 💭 闲时行动 | 自主研究周报 (arXiv) + 闲聊话题生成 | 1 | ✅ |
-| 🧬 自我进化 | 每次 tool 调用轨迹入库,供 MetaClaw RL 训练 | 3 | ✅ 遥测 |
-| 🤖 机器人专属 | 训练 Run、Checkpoint、Sim-to-Real Gap 追踪 | 1 | ✅ |
-| 👨‍🏫 导师视角 | Dashboard、自然语言派任务、1:1 自动议程 | 1 | ✅ |
-| 👥 协作成长 | Reading Group 轮值、师兄答疑调度、Skill Tree | 1 | ✅ |
-| 📖 知识沉淀 | Failure Museum、FAQ 搜索、Lab Meme 档案 | 1 | ✅ |
-| 📝 会议流程 | 每日 Standup、组会议程、会议纪要自动化 | 1 | ✅ |
-| 📚 学术管理 | Paper 库、实验记录、设备预约、投稿追踪、周报聚合 | 1 | ✅ |
-| 🆕 新生入职 | 12 项 Onboarding Checklist 自动跟进 | 1 | ✅ |
-
-**Phase 1** = 纯软件可跑 · **Phase 2** = 需 Temi / RFID / 摄像头 · **Phase 3** = MetaClaw RL 学习回路
+| 类别 | 功能 |
+|---|---|
+| 👋 **导览** | 5 阶段:开场白 → 实验室介绍 → 特色区域 → 工位区 → 问答 |
+| 📊 **进度管理** | 学生口述 → 甘特图生成;每日 09:00 节点 @ 提醒 |
+| 🔧 **器材管理** | 借还登记 + RFID 每日巡查 |
+| 🧘 **自我监督** | 线上 DM 定时问进度 + 线下摄像头检测专注 + 柔性干预 |
+| 💭 **闲时行动** | 自主研究周报(arXiv)+ 闲聊话题生成 |
+| 🧬 **自我进化** | 每次 tool 调用轨迹入库 + MetaClaw 技能注入 |
+| 🤖 **机器人专属** | 训练 Run、Checkpoint、Sim-to-Real Gap 追踪 |
+| 👨‍🏫 **导师视角** | Dashboard、自然语言派任务、1:1 自动议程 |
+| 👥 **协作成长** | Reading Group 轮值、师兄答疑调度、Skill Tree |
+| 📖 **知识沉淀** | Failure Museum、FAQ 搜索、Lab Meme 档案 |
+| 📝 **会议流程** | 每日 Standup、组会议程、会议纪要自动化 |
+| 📚 **学术管理** | Paper 库、实验记录、设备预约、投稿追踪、周报聚合 |
+| 🆕 **新生入职** | 12 项 Onboarding Checklist 自动跟进 |
 
 ---
 
@@ -77,17 +79,17 @@
 └───────────────────────────────┬──────────────────────────────────────┘
                                 │ OpenAI 兼容
 ┌───────────────────────────────▼──────────────────────────────────────┐
-│  MetaClaw proxy  ·  透明代理                                          │
-│    · skill_manager → 注入 SKILL.md                                    │
-│    · rollout + prm_scorer → 记录过程奖励                              │
-│    · 空闲窗口 GRPO 训练(可选)                                        │
+│  MetaClaw proxy  ·  skills 模式                                       │
+│    · skill_manager → 每轮注入相关 SKILL.md                            │
+│    · memory layer → 跨会话 facts / preferences / project history     │
+│    · 会话结束自动 summarize 成新 skill                                │
 └───────────────────────────────┬──────────────────────────────────────┘
                                 │
                  ┌──────────────┴─────────────────┐
                  │                                │
 ┌────────────────▼────────────┐    ┌──────────────▼──────────────────┐
 │ feishu-classmate 插件       │    │  真实 LLM                        │
-│                             │    │  (Anthropic / OpenAI / v3cm)    │
+│                             │    │  (Anthropic / OpenAI / …)        │
 │  tools/    temi/ supervisor/│    └─────────────────────────────────┘
 │            chat/ research/  │
 │  services/ gantt-scheduler  │    ┌─────────────────────────────────┐
@@ -112,14 +114,14 @@
 | Python | 3.10+ | Temi sidecar |
 | pnpm | 10+ | 包管理 |
 | OpenClaw | ≥ 2026.4.10 | `npm i -g openclaw` |
-| MetaClaw | 可选 | `pip install aiming-metaclaw` |
-| 飞书自建应用 | — | 需权限见 [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) |
+| MetaClaw | 可选 | `pip install aiming-metaclaw`(skills 模式) |
+| 飞书自建应用 | — | 权限清单见 [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) |
 
-### 2. 安装 + 启动(5 分钟冒烟)
+### 2. 安装 + 启动
 
 ```bash
 # 克隆 + 装依赖
-git clone <repo-url> feishu-classmate
+git clone https://github.com/BaiTianHaoNian/feishu-classmate.git
 cd feishu-classmate
 pnpm install
 
@@ -238,11 +240,11 @@ node_modules/.bin/openclaw classmate setup-bitable
 | [lab-faq-search](skills/lab-faq-search/SKILL.md) | 入门 FAQ 搜索(Docker / GPU / SSH 等) |
 | [lab-meme](skills/lab-meme/SKILL.md) | 实验室段子 / inside jokes(带 consent 审核) |
 
-### 🧬 自我进化
+### 🧬 技能沉淀
 
 | Skill | 作用 |
 |---|---|
-| [evolve-telemetry](skills/evolve-telemetry/SKILL.md) | 查询 ToolTrace 轨迹,为 MetaClaw RL 提供数据 |
+| [evolve-telemetry](skills/evolve-telemetry/SKILL.md) | 查询 ToolTrace 轨迹,辅助 skill 迭代 |
 
 ---
 
@@ -284,7 +286,7 @@ node_modules/.bin/openclaw classmate setup-bitable
 | 会议 | `Standups` · `ReadingGroup` · `OneOnOnes` |
 | 知识 | `FailureArchive` · `LabFAQ` · `MentorAnswers` · `LabMemes` |
 | 报告 | `Research` · `WeeklyDigests` |
-| 遥测 | `ToolTrace`(MetaClaw 自我进化数据源) |
+| 遥测 | `ToolTrace` |
 
 PDF 对照审计见 **[docs/PDF_COMPLIANCE.md](docs/PDF_COMPLIANCE.md)**。
 
@@ -296,7 +298,7 @@ PDF 对照审计见 **[docs/PDF_COMPLIANCE.md](docs/PDF_COMPLIANCE.md)**。
 |---|---|---|
 | 1 | **OpenClaw core** | Agent 调度、会话、工具注入 |
 | 2 | **@larksuite/openclaw-lark** | 飞书通道 + 官方数据工具 |
-| 3 | **MetaClaw**(可选) | 透明 LLM 代理 + RL 学习回路 |
+| 3 | **MetaClaw**(可选) | 透明 LLM 代理 · skills 模式(技能注入 + 跨会话记忆) |
 | 4 | **feishu-classmate**(本仓库) | 实验室业务 + 硬件控制 |
 | 5 | **temi-sidecar**(Python FastAPI) | Temi 机器人 HTTP 网关,mock-capable |
 
@@ -357,40 +359,12 @@ feishu-classmate/
 
 ---
 
-## 🗺️ Roadmap
-
-### ✅ Phase 1 — 纯软件骨架(当前)
-
-- [x] 28 Skills + 20+ Bitable 表
-- [x] OpenClaw + MetaClaw + openclaw-lark 接通
-- [x] 飞书消息 E2E 跑通(bot 能收发、调 tool)
-- [x] ToolTrace 遥测收集(自我进化 Phase 1)
-- [x] Temi sidecar mock
-
-### 🚧 Phase 2 — Temi 硬件集成
-
-- [ ] Temi 真机联调(`goto` / `speak` / `stop`)
-- [ ] RFID 模块集成 → 每日资产巡查
-- [ ] 摄像头专注度检测(MediaPipe)
-- [ ] 导览 5 阶段真机跑通
-- [ ] Follow mode + gesture(鼓励 / 提醒)
-
-### 🧬 Phase 3 — 自我进化全回路
-
-- [ ] MetaClaw RL 模式启用(GRPO + Tinker)
-- [ ] Skill evolver 候选审核 UI
-- [ ] 成功率 < 40% 的 skill 自动触发 re-write
-- [ ] 数据可视化面板(进化指标、失败分布)
-
----
-
 ## 🙏 Related Projects
 
-- [aiming-lab/MetaClaw](https://github.com/aiming-lab/MetaClaw) — 透明 LLM 代理 + 自我进化
+- [aiming-lab/MetaClaw](https://github.com/aiming-lab/MetaClaw) — 透明 LLM 代理 · skills 模式 · memory layer
 - [aiming-lab/ClawArena](https://github.com/aiming-lab/ClawArena) — Agent 评测 arena
 - [openclaw/openclaw](https://github.com/openclaw/openclaw) — 个人 AI 助手 CLI
 - [larksuite/openclaw-lark](https://github.com/larksuite/openclaw-lark) — 飞书通道插件
-- [TingxiaoDong/FeishuCLassmate](https://github.com/TingxiaoDong/FeishuCLassmate) — 原项目参考(已重构为本仓库)
 
 ---
 
@@ -401,8 +375,8 @@ feishu-classmate/
   title  = {Feishu Classmate: A Lab-Scenario AI Assistant on OpenClaw + MetaClaw},
   author = {Dong, Tingxiao and Ji, Haonian and Xu, Yuan},
   year   = {2026},
-  url    = {https://github.com/<your-org>/feishu-classmate},
-  note   = {Built on @larksuite/openclaw-lark and aiming-lab/MetaClaw}
+  url    = {https://github.com/BaiTianHaoNian/feishu-classmate},
+  note   = {Built on @larksuite/openclaw-lark and aiming-lab/MetaClaw (skills mode)}
 }
 ```
 

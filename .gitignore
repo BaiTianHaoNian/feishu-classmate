@@ -8,3 +8,4 @@ dist/
 temi-sidecar/.venv/
 temi-sidecar/__pycache__/
 temi-sidecar/**/__pycache__/
+.local/
