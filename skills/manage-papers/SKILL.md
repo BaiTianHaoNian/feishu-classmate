@@ -102,7 +102,7 @@ Papers 表其它字段:`paper_id` (Text primary)、`title`、`authors` (逗号�
 
 ---
 
-## 场景 D:挂到某个 Project
+## 场景 D:挂到某个 Project (由 [manage-gantt](../manage-gantt/SKILL.md) 管理)
 
 学生补一句 `这篇跟 proj_xxx 相关` 或在收录时说 `存到 RLHF-Agent 项目下`。
 

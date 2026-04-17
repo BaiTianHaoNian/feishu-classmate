@@ -46,7 +46,7 @@ major/minor revision → 审稿中 → 已接收 | 被拒
 
 ### 步骤
 
-1. LLM 抽字段: `title`、`venue`、`decision_due`(解析为毫秒)、`author_open_ids`(默认发消息者)
+1. LLM 抽字段: `title`、`venue`、`decision_due`(解析为毫秒)、`author_open_ids`(默认发消息者)、`paper_id`(可选,FK 到 Papers,由 [manage-papers](../manage-papers/SKILL.md) 管理)
 2. 用 `feishu_ask_user_question` 回读确认:标题 / venue / 决定 deadline / 作者列表
 3. 创建:
    ```

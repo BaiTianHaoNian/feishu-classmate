@@ -21,25 +21,7 @@ feishu_classmate_data_layout()
 
 所有 bitable 操作直接用返回的 `app_token` + `tables[x].table_id` 丢给 lark 原生工具。
 
-## 前置:Standups 表存在性检查
-
-如果 `tables.standups` 在 `feishu_classmate_data_layout()` 返回里**缺失**,必须先让
-admin 创建。给 admin 这段话:
-
-> 请用 `feishu_bitable_app_table` action=create,app_token=<上面那个>,name="Standups",
-> fields 如下再跑一次:
-
-| field_name | type | 说明 |
-|---|---|---|
-| standup_id | 1 (Text) | 主键,`su_<ts>_<rand>` |
-| date | 1 (Text) | `YYYY-MM-DD`,方便筛选 |
-| student_open_id | 11 (User) | `[{id:"ou_xxx"}]` |
-| yesterday | 1 (Text) | 昨日进度摘要 |
-| today | 1 (Text) | 今日计划 |
-| blockers | 1 (Text) | 卡点,可空 |
-| created_at | 5 (DateTime) | 毫秒时间戳 |
-
-admin 创好后重跑 `feishu_classmate_data_layout` 即可看到 `standups` key。
+`tables.standups` 缺失 → 提示 admin 跑 `setup-bitable`,停止。
 
 ---
 
@@ -143,9 +125,23 @@ admin 创好后重跑 `feishu_classmate_data_layout` 即可看到 `standups` key
 
 ---
 
+## 需要新建的多维表
+
+### Standups
+
+| 字段 | 类型 | 说明 |
+|---|---|---|
+| `standup_id` | Text (pk) | `su_<ts>_<rand>` |
+| `date` | Text | `YYYY-MM-DD` 方便筛选 |
+| `student_open_id` | User | `[{id:"ou_xxx"}]` |
+| `yesterday` | Text | 昨日进度摘要 |
+| `today` | Text | 今日计划 |
+| `blockers` | Text | 卡点,可空 |
+| `created_at` | DateTime | 毫秒时间戳 |
+
 ## 字段枚举(严格)
 
-Standups 表没有 SingleSelect,不设枚举。时间字段 `created_at` 用**毫秒时间戳**(不是秒)。
+Standups 表没有 SingleSelect,不设枚举。时间字段 `created_at` 用**毫秒时间戳**。
 `student_open_id` 必须是 `[{id:"ou_xxx"}]` 数组对象,绝不能是裸字符串。
 
 ---

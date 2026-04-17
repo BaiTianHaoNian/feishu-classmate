@@ -39,7 +39,7 @@ feishu_classmate_data_layout()
 | root_cause_md | Text long | 根因分析 |
 | workaround_or_lesson_md | Text long | 绕行方案 / 后人可以这样做 |
 | tldr | Text | **自动生成的 1 句话总结**,用于搜索命中排序 |
-| related_project_id | Text (FK Projects) | project_id 字符串 |
+| related_project_id | Text (FK Projects) | project_id 字符串(由 [manage-gantt](../manage-gantt/SKILL.md) 管理) |
 | tags | MultiSelect | 关键词,如 `PPO`、`CUDA`、`ROS noetic` |
 | related_paper_urls | Text | 逗号分隔 URL |
 | hours_wasted | Number | 大致被卡的小时数 |

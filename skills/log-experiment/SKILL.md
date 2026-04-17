@@ -33,7 +33,7 @@ feishu_classmate_data_layout()
 
 **Agent 必须严格用以上中文值**。写错会返回 `FieldConvFail`（code 125406X）。
 
-`Experiments` 表其它字段：`exp_id` (Text primary)、`project_id` (Text, FK by string)、
+`Experiments` 表其它字段：`exp_id` (Text primary)、`project_id` (Text, FK by string 到 Projects, 由 [manage-gantt](../manage-gantt/SKILL.md) 管理)、
 `student_open_id` (User)、`title` (Text)、`hypothesis` (Text)、`setup_md` (Text long,
 作为 Doc 生成前的兜底快照)、`metrics_json` (Text, 扁平 JSON 字符串)、`result_summary` (Text)、
 `doc_url` (Url, 指向详细记录 Doc)、`created_at` (DateTime ms)、`completed_at` (DateTime ms, 可空)。

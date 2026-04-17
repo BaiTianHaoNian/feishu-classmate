@@ -34,7 +34,7 @@ feishu_classmate_data_layout()
 | proficiency | SingleSelect | `入门` / `熟练` / `精通` / `可教` |
 | self_reported | Checkbox | true=自报,false=他人登记 |
 | verified_by_open_id | User | 验证人(可为空) |
-| example_project_id | Text | FK → `Projects.project_id`,证据项目 |
+| example_project_id | Text | FK → `Projects.project_id`,证据项目(由 [manage-gantt](../manage-gantt/SKILL.md) 管理) |
 | last_used_at | DateTime | 最近一次使用该技能的时间(毫秒) |
 | notes | Text | 备注,如"带过师弟做 XX" |
 
@@ -45,25 +45,17 @@ feishu_classmate_data_layout()
 
 ```
 仿真/平台:     MuJoCo、IsaacGym、PyBullet、Gazebo
-机器人中间件:  ROS、ROS2、MoveIt
-深度学习框架:  PyTorch、JAX、TF2
+中间件/框架:   ROS、ROS2、MoveIt、PyTorch、JAX、TF2
 学习范式:      RL、IL、Diffusion-Policy
-编程语言:      Python、C++、CUDA
-基础设施:      Docker、K8s、Slurm
-模型描述:      URDF、MJCF
-机械设计:      CAD、Fusion360、Solidworks
-SLAM:          SLAM、RTABMap、Cartographer
-视觉标记:      ArUco、AprilTag
-规划/碰撞:     ORCA、FCL
-动捕:          OptiTrack、Vicon
+语言/基建:     Python、C++、CUDA、Docker、K8s、Slurm
+模型/机械:     URDF、MJCF、CAD、Fusion360、Solidworks
+SLAM/视觉:     SLAM、RTABMap、Cartographer、ArUco、AprilTag、Open3D、PCL、ROS-Perception
+规划/动捕:     ORCA、FCL、OptiTrack、Vicon
 通用:          Git、Linux、LaTeX
 LLM/VLA:       HuggingFace、OpenVLA、RT-2
-感知:          Open3D、PCL、ROS-Perception
 ```
 
-> preset 标签一经确定,LLM 匹配用户口述时必须就近归一
-> (如 "我会 iga/isaacgym" → `IsaacGym`),不得随意新增。
-> 新标签需 admin 线下评审再加入 schema,不走运行时动态添加。
+> preset 标签 LLM 必须就近归一("iga/isaacgym" → `IsaacGym`),不得随意新增。新标签需 admin 线下评审再加入 schema。
 
 ---
 
@@ -132,26 +124,13 @@ LLM/VLA:       HuggingFace、OpenVLA、RT-2
 
 ## 场景 C:验证(+1)
 
-示例:`+1 张三 的 ROS` / `给李四的 MuJoCo 打个确认`
+示例:`+1 张三 的 ROS`
 
-### 步骤
-
-1. LLM 解析出 `{ target: "张三", skill: "ROS" }`;把 `target` 映射到 open_id
-   (用 `labInfo.members` 的姓名↔open_id 表;无法映射则问清)
-2. 先 list 找到那条记录的 record_id:
-   ```
-   filter: "AND(CurrentValue.[student_open_id]=[{\"id\":\"ou_xxx\"}], CurrentValue.[skill_tag].contains(\"ROS\"))"
-   ```
-3. **更新**:
-   ```
-   action: "update",
-   record_id: <那条>,
-   fields: {
-     verified_by_open_id: [{ id: "<验证人 open_id>" }]
-   }
-   ```
-4. 回复"已验证 @张三 的 ROS 技能 ✅"
-5. **自我验证禁止**:若验证人 == `student_open_id`,直接拒绝
+1. LLM 解析 `{ target, skill }`,`target` → open_id(`labInfo.members` 姓名表,无法映射则问清)
+2. list 找记录: filter `student_open_id=[{id:"ou_xxx"}] AND skill_tag.contains("ROS")`
+3. **update** `verified_by_open_id: [{id:"<验证人>"}]`
+4. **自我验证禁止**: 验证人 == student → 直接拒绝
+5. 回复"已验证 @张三 的 ROS 技能 ✅"
 
 ---
 

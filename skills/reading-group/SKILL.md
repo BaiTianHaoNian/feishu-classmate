@@ -141,17 +141,8 @@ feishu_classmate_data_layout()
 
 ## 场景 D:查询
 
-- **`list past sessions`** / `最近几次 RG`:
-  ```
-  action: "list",
-  filter: "CurrentValue.[status]=\"已结束\"",
-  sort: [{ field_name: "date", desc: true }],
-  page_size: 10
-  ```
-  格式化输出:日期 | 主讲 | 题目 | 平均分
-
-- **`谁还没讲过`**:list 全部 `已结束`,统计每位成员 `presenter_open_id` 出现次数,
-  与 `labInfo.members` 求差集 → 从未讲过的;再对讲过的按最久未讲排序
+- **`最近几次 RG`**: filter `status="已结束"`, sort `date desc`, page_size 10 → 输出 `日期 | 主讲 | 题目 | 平均分`
+- **`谁还没讲过`**: list 全部 `已结束`,按 `presenter_open_id` 统计,与 `labInfo.members` 求差集;讲过的按最久未讲排序
 
 ---
 
